@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>vue小案例 | xiazhilan</title><meta name="keywords" content="vue"><meta name="author" content="夏之,xiazhi1226@163.com"><meta name="copyright" content="夏之"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开始tab切换切换导航栏更新对应的内容 &lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue小案例">
+<meta property="og:url" content="http://example.com/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/index.html">
+<meta property="og:site_name" content="xiazhilan">
+<meta property="og:description" content="开始tab切换切换导航栏更新对应的内容 &lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp">
+<meta property="article:published_time" content="2021-07-27T06:43:55.000Z">
+<meta property="article:modified_time" content="2021-07-27T07:04:06.469Z">
+<meta property="article:author" content="夏之">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp"><link rel="shortcut icon" href="/img/logo.jfif"><link rel="canonical" href="http://example.com/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue小案例',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2021-07-27 15:04:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><script src="https://cdn.jsdelivr.net/gh/lete114/CDN/Sum/sakura.js"></script><div class="aplayer" data-id="4968103795" data-server="netease" data-type="playlist" data-fixed="true" data-listFolded="false" data-order="random" data-preload="auto"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lete114/CDN/music/APlayer/APlayer.min.css"><script src="https://cdn.jsdelivr.net/gh/lete114/CDN/music/APlayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/xiazhilan.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-archive faa-shake"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/code/"><i class="fa-fw fa fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-fw fas fa-compass"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> LOVE</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xiazhilan</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-archive faa-shake"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/code/"><i class="fa-fw fa fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-fw fas fa-compass"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/love/"><i class="fa-fw fa fa-heart"></i><span> LOVE</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue小案例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-27T06:43:55.000Z" title="发表于 2021-07-27 14:43:55">2021-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-27T07:04:06.469Z" title="更新于 2021-07-27 15:04:06">2021-07-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue小案例"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="tab切换"><a href="#tab切换" class="headerlink" title="tab切换"></a>tab切换</h3><p>切换导航栏更新对应的内容<br><img src="https://img-blog.csdnimg.cn/596105ab0cc0422e93177a4bd62a8625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1bW1lcnpoaQ==,size_16,color_FFFFFF,t_70" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;IE=edge&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        *&#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .nav&#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            margin: 50px auto 0;</span><br><span class="line">        &#125;</span><br><span class="line">        ul li&#123;</span><br><span class="line">            padding: 20px;</span><br><span class="line">            <span class="built_in">float</span>: left;</span><br><span class="line">            border: 1px solid skyblue;</span><br><span class="line">        &#125;</span><br><span class="line">        .con&#123;</span><br><span class="line">            height: 300px;</span><br><span class="line">            line-height: 200px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            border: 1px solid lightblue;</span><br><span class="line">        &#125;</span><br><span class="line">        .active&#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">&quot;nav&quot;</span>&gt;</span><br><span class="line">            &lt;ul class=<span class="string">&quot;tab&quot;</span>&gt;</span><br><span class="line">                &lt;li </span><br><span class="line">                v-for=<span class="string">&quot;(item,index) in ulValue&quot;</span></span><br><span class="line">                :class=<span class="string">&quot;liIndex===index?&#x27;active&#x27;:&#x27;&#x27;&quot;</span></span><br><span class="line">                @click=<span class="string">&quot;change(index)&quot;</span></span><br><span class="line">                &gt;&#123;&#123;item&#125;&#125;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;div class=<span class="string">&quot;con&quot;</span>&gt;</span><br><span class="line">                &#123;&#123;showValue&#125;&#125;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=<span class="string">&quot;../vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 创建Vue实例</span><br><span class="line">        var vm = new Vue(&#123;//配置项</span><br><span class="line">            el:<span class="string">&quot;#app&quot;</span>,//挂载点</span><br><span class="line">            data: &#123;//数据</span><br><span class="line">                showValue:<span class="string">&quot;动作片&quot;</span>,</span><br><span class="line">                liIndex:0,</span><br><span class="line">                ulValue:[<span class="string">&quot;动作&quot;</span>,<span class="string">&quot;爱情&quot;</span>,<span class="string">&quot;科幻&quot;</span>,<span class="string">&quot;冒险&quot;</span>],</span><br><span class="line">                liValue:[<span class="string">&quot;动作片&quot;</span>,<span class="string">&quot;爱情片&quot;</span>,<span class="string">&quot;科幻片&quot;</span>,<span class="string">&quot;冒险片&quot;</span>],</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;//方法，事件</span><br><span class="line">                change(index)&#123;</span><br><span class="line">                    this.liIndex = index</span><br><span class="line">                    this.showValue = this.liValue[index]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="待办任务列表"><a href="#待办任务列表" class="headerlink" title="待办任务列表"></a>待办任务列表</h3><p>显示任务、添加任务、删除任务、完成任务时颜色的切换<br><img src="https://img-blog.csdnimg.cn/0cad4347751d4224b8b2cdce50d77309.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;IE=edge&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .red&#123;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">        .green&#123;</span><br><span class="line">            background: green;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&quot;inputValue&quot;</span>&gt;</span><br><span class="line">        &lt;button @click=<span class="string">&quot;add()&quot;</span>&gt;添加&lt;/button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=<span class="string">&quot;(item,index) in query&quot;</span>&gt;</span><br><span class="line">                &lt;span &gt;&#123;&#123;item.task&#125;&#125;&lt;/span&gt;</span><br><span class="line">                &lt;button @click=<span class="string">&quot;del(index)&quot;</span>&gt;del&lt;/button&gt;</span><br><span class="line">                &lt;!-- 点击这里切换完成情况 已完成显示绿色，未完成显示红色 --&gt;</span><br><span class="line">                &lt;button @click=<span class="string">&quot;done(index)&quot;</span> :class=<span class="string">&quot;query[index].state?&#x27;green&#x27;:&#x27;red&#x27;&quot;</span>&gt;&#123;&#123;item.state?<span class="string">&quot;已完成&quot;</span>:<span class="string">&#x27;未完成&#x27;</span>&#125;&#125;&lt;/button&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=<span class="string">&quot;../vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 创建Vue实例</span><br><span class="line">        var vm = new Vue(&#123;//配置项</span><br><span class="line">            el:<span class="string">&quot;#app&quot;</span>,//挂载点</span><br><span class="line">            data: &#123;//数据</span><br><span class="line">                inputValue:<span class="string">&quot;&quot;</span>,</span><br><span class="line">                //查询事项</span><br><span class="line">                query:[</span><br><span class="line">                    &#123;task:<span class="string">&quot;吃了吗&quot;</span>,state:<span class="literal">true</span>&#125;,</span><br><span class="line">                    &#123;task:<span class="string">&quot;吃了啊&quot;</span>,state:<span class="literal">false</span>&#125;,</span><br><span class="line">                    &#123;task:<span class="string">&quot;吃了啥&quot;</span>,state:<span class="literal">false</span>&#125;,</span><br><span class="line">                    &#123;task:<span class="string">&quot;吃了辣&quot;</span>,state:<span class="literal">true</span>&#125;</span><br><span class="line">                ],</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;//方法，事件</span><br><span class="line">                //添加事项</span><br><span class="line">                <span class="function"><span class="title">add</span></span>()&#123;</span><br><span class="line">                    this.query.unshift(&#123;task:this.inputValue,state:<span class="literal">false</span>&#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                //删除事项</span><br><span class="line">                del(index)&#123;</span><br><span class="line">                    this.query.splice(index,1)</span><br><span class="line">                &#125;,</span><br><span class="line">                //切换事项完成情况</span><br><span class="line">                <span class="keyword">done</span>(index)&#123;</span><br><span class="line">                    this.query[index].state = !this.query[index].state</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表格隔行换色"><a href="#表格隔行换色" class="headerlink" title="表格隔行换色"></a>表格隔行换色</h3><p>隔行换色、鼠标移入移出行的颜色编号、有一个下拉列表可以选择切换隔行的颜色<br><img src="https://img-blog.csdnimg.cn/26b2e58fbcb54ba5b5ac05eba50f388b.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;IE=edge&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        table&#123;</span><br><span class="line">            border-collapse: collapse;</span><br><span class="line">        &#125;</span><br><span class="line">        .odd&#123;</span><br><span class="line">            background-color: lightblue;</span><br><span class="line">        &#125;</span><br><span class="line">        .even&#123;</span><br><span class="line">            background-color: lightcyan;</span><br><span class="line">        &#125;</span><br><span class="line">        .odd2&#123;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">        .even2&#123;</span><br><span class="line">            background-color:blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        .odd3&#123;</span><br><span class="line">            background-color: yellowgreen;</span><br><span class="line">        &#125;</span><br><span class="line">        .even3&#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">        &#125;</span><br><span class="line">        .hover&#123;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;!-- 双向数据绑定 --&gt;</span><br><span class="line">        &lt;select v-model=<span class="string">&quot;selectValue&quot;</span>&gt;</span><br><span class="line">            &lt;!-- 遍历数组colors 通过属性绑定来切换value值 --&gt;</span><br><span class="line">            &lt;option v-for=<span class="string">&quot;(item,index) in colors&quot;</span> :value=<span class="string">&quot;index&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/option&gt;</span><br><span class="line">        &lt;/select&gt;</span><br><span class="line">        &lt;table border=<span class="string">&quot;1&quot;</span> @mouseout=<span class="string">&quot;out&quot;</span>&gt;</span><br><span class="line">            &lt;!-- trIndex%2时颜色就会变成数组colors里面的 [selectValue][0] 第一个值绑定着option的value 第二个值是colors里面下标为0的值--&gt;</span><br><span class="line">            &lt;tr </span><br><span class="line">            v-for=<span class="string">&quot;(trItem,trIndex) in tableValue&quot;</span></span><br><span class="line">            :class=<span class="string">&quot;[trIndex%2?colors[selectValue][0]:colors[selectValue][1],hoverIndex===trIndex?&#x27;hover&#x27;:&#x27;&#x27;]&quot;</span></span><br><span class="line">            @mouseover=<span class="string">&quot;over(trIndex)&quot;</span></span><br><span class="line">            &gt;</span><br><span class="line">                &lt;td v-for=<span class="string">&quot;(tdItem,tdIndex) in trItem&quot;</span>&gt;</span><br><span class="line">                    &#123;&#123;tdItem&#125;&#125;</span><br><span class="line">                &lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">        &lt;/table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=<span class="string">&quot;../vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 创建Vue实例</span><br><span class="line">        var vm = new Vue(&#123;//配置项</span><br><span class="line">            el:<span class="string">&quot;#app&quot;</span>,//挂载点</span><br><span class="line">            data: &#123;//数据</span><br><span class="line">                //为-1时隐藏颜色</span><br><span class="line">                hoverIndex:-1,</span><br><span class="line">                //双向数据绑定</span><br><span class="line">                selectValue:0,</span><br><span class="line">                tableValue:[</span><br><span class="line">                    [<span class="string">&quot;第一行1&quot;</span>,<span class="string">&quot;第一行2&quot;</span>,<span class="string">&quot;第一行3&quot;</span>,<span class="string">&quot;第一行4&quot;</span>,<span class="string">&quot;第一行5&quot;</span>],</span><br><span class="line">                    [<span class="string">&quot;第二行1&quot;</span>,<span class="string">&quot;第二行2&quot;</span>,<span class="string">&quot;第二行3&quot;</span>,<span class="string">&quot;第二行4&quot;</span>,<span class="string">&quot;第二行5&quot;</span>],</span><br><span class="line">                    [<span class="string">&quot;第三行1&quot;</span>,<span class="string">&quot;第三行2&quot;</span>,<span class="string">&quot;第三行3&quot;</span>,<span class="string">&quot;第三行4&quot;</span>,<span class="string">&quot;第三行5&quot;</span>],</span><br><span class="line">                    [<span class="string">&quot;第四行1&quot;</span>,<span class="string">&quot;第四行2&quot;</span>,<span class="string">&quot;第四行3&quot;</span>,<span class="string">&quot;第四行4&quot;</span>,<span class="string">&quot;第四行5&quot;</span>],</span><br><span class="line">                    [<span class="string">&quot;第五行1&quot;</span>,<span class="string">&quot;第五行2&quot;</span>,<span class="string">&quot;第五行3&quot;</span>,<span class="string">&quot;第五行4&quot;</span>,<span class="string">&quot;第五行5&quot;</span>]</span><br><span class="line">            ],</span><br><span class="line">            colors:[</span><br><span class="line">                [<span class="string">&quot;odd&quot;</span>,<span class="string">&quot;even&quot;</span>],</span><br><span class="line">                [<span class="string">&quot;odd2&quot;</span>,<span class="string">&quot;even2&quot;</span>],</span><br><span class="line">                [<span class="string">&quot;odd3&quot;</span>,<span class="string">&quot;even3&quot;</span>],</span><br><span class="line">            ]</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;//方法，事件</span><br><span class="line">                //移入时 hoverIndex大于0就会显示颜色</span><br><span class="line">                over(index)&#123;</span><br><span class="line">                    this.hoverIndex = index</span><br><span class="line">                &#125;,</span><br><span class="line">                //移出时 hoverIndex等于-1就会隐藏颜色</span><br><span class="line">                <span class="function"><span class="title">out</span></span>()&#123;</span><br><span class="line">                    this.hoverIndex = -1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:xiazhi1226@163.com">夏之</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/">http://example.com/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">xiazhilan</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue/">vue</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/07/26/vue%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">vue基础语法（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/07/26/vue基础语法（一）/" title="vue基础语法（一）"><img class="cover" src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-26</div><div class="title">vue基础语法（一）</div></div></a></div><div><a href="/2021/07/26/vue详细笔记/" title="vue详细笔记"><img class="cover" src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-26</div><div class="title">vue详细笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/xiazhilan.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夏之</div><div class="author-info__description">Shall I compare thee to a summer's day</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xiazhiooo.github.io"><i class="fab fa-github"></i><span>Edit this site</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xiazhiooo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xiazhi1226@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/454378833" target="_blank" title="Bilibili"><i class="fas fa-video"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=620117258" target="_blank" title="网易云"><i class="fas fa-music"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">这个月把博客布置完成，并完成五篇博客。万事开头难，加油！<img src="https://cdn.jsdelivr.net/gh/lete114/CDN/Use/my_bg.gif"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tab%E5%88%87%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">tab切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">待办任务列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E9%9A%94%E8%A1%8C%E6%8D%A2%E8%89%B2"><span class="toc-number">1.3.</span> <span class="toc-text">表格隔行换色</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/" title="vue小案例"><img src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue小案例"/></a><div class="content"><a class="title" href="/2021/07/27/vue%E5%B0%8F%E6%A1%88%E4%BE%8B/" title="vue小案例">vue小案例</a><time datetime="2021-07-27T06:43:55.000Z" title="发表于 2021-07-27 14:43:55">2021-07-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/26/vue%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" title="vue基础语法（一）"><img src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue基础语法（一）"/></a><div class="content"><a class="title" href="/2021/07/26/vue%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" title="vue基础语法（一）">vue基础语法（一）</a><time datetime="2021-07-26T11:53:15.000Z" title="发表于 2021-07-26 19:53:15">2021-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/26/vue%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" title="vue详细笔记"><img src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue详细笔记"/></a><div class="content"><a class="title" href="/2021/07/26/vue%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" title="vue详细笔记">vue详细笔记</a><time datetime="2021-07-26T11:27:26.000Z" title="发表于 2021-07-26 19:27:26">2021-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/26/Vue%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" title="无题"><img src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover6.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2021/07/26/Vue%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" title="无题">无题</a><time datetime="2021-07-26T11:02:40.236Z" title="发表于 2021-07-26 19:02:40">2021-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/22/nodejs-ejs-mongodb%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="nodejs+express框架+mongodb项目实战"><img src="https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs+express框架+mongodb项目实战"/></a><div class="content"><a class="title" href="/2021/07/22/nodejs-ejs-mongodb%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="nodejs+express框架+mongodb项目实战">nodejs+express框架+mongodb项目实战</a><time datetime="2021-07-22T11:15:14.000Z" title="发表于 2021-07-22 19:15:14">2021-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 <i style="color:#FF6A6A;animation: announ_animation 0.8s linear infinite;" class="fa fa-heartbeat"></i> 夏之</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div><div id="running-time"><script>setInterval(()=>{let create_time=Math.round(new Date('2021-07-16 00:00:00').getTime()/1000);let timestamp=Math.round((new Date().getTime()+8*60*60*1000)/1000);let second=timestamp-create_time;let time=new Array(0,0,0,0,0);if(second>=365*24*3600){time[0]=parseInt(second/(365*24*3600));second%=365*24*3600;}if(second>=24*3600){time[1]=parseInt(second/(24*3600));second%=24*3600;}if(second>=3600){time[2]=parseInt(second/3600);second%=3600;}if(second>=60){time[3]=parseInt(second/60);second%=60;}if(second>0){time[4]=second;}currentTimeHtml='本站已安全运行 '+time[0]+' 年 '+time[1]+' 天 '+time[2]+' 时 '+time[3]+' 分 '+time[4]+' 秒';document.getElementById("running-time").innerHTML=currentTimeHtml;},1000);</script></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script src="https://cdn.jsdelivr.net/gh/lete114/CDN/Sum/title.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
